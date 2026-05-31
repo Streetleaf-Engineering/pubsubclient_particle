@@ -149,11 +149,11 @@ public:
    boolean connect(const char* id, const char* user, const char* pass, const char* willTopic, uint8_t willQos, boolean willRetain, const char* willMessage, boolean cleanSession);
    void disconnect();
    boolean publish(const char* topic, const char* payload);
-   boolean publish(const char* topic, const char* payload, boolean retained);
+   boolean publish(const char* topic, const char* payload, boolean retain);
    boolean publish(const char* topic, const uint8_t * payload, unsigned int plength);
-   boolean publish(const char* topic, const uint8_t * payload, unsigned int plength, boolean retained);
-   boolean publish_P(const char* topic, const char* payload, boolean retained);
-   boolean publish_P(const char* topic, const uint8_t * payload, unsigned int plength, boolean retained);
+   boolean publish(const char* topic, const uint8_t * payload, unsigned int plength, boolean retain);
+   boolean publish_P(const char* topic, const char* payload, boolean retain);
+   boolean publish_P(const char* topic, const uint8_t * payload, unsigned int plength, boolean retain);
    // Start to publish a message.
    // This API:
    //   beginPublish(...)
@@ -162,7 +162,7 @@ public:
    // Allows for arbitrarily large payloads to be sent without them having to be copied into
    // a new buffer and held in memory at one time
    // Returns 1 if the message was started successfully, 0 if there was an error
-   boolean beginPublish(const char* topic, unsigned int plength, boolean retained);
+   boolean beginPublish(const char* topic, unsigned int plength, boolean retain);
    // Finish off this publish message (started with beginPublish)
    // Returns 1 if the packet was sent successfully, 0 if there was an error
    int endPublish();
